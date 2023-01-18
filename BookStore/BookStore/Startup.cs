@@ -26,6 +26,10 @@ namespace BookStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //-------Enable Razor file compiletime to Runtime compilation works for only Debug Environment using RuntimeCompilation Package
+#if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
